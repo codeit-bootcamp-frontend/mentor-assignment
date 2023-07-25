@@ -58,12 +58,12 @@ const getLink = async (userID: number, folderID?: number): Promise<Link[]> => {
     : `users/${userID}/links`;
 
   // 위에서 instance가 response.data로 처리하는데 인식 못하는 것 같음
-  const { data: responseData } = await instance.get<{ distinctData: Link[] }>(
+  const { data: responseData } = await instance.get<{ data: Link[] }>(
     url,
   );
-  const { distinctData } = responseData;
+  const { data } = responseData;
 
-  return distinctData;
+  return data;
 };
 
 export { getUser, getFolder, getFolders, getLink };
